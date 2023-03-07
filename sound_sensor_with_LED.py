@@ -21,13 +21,13 @@ def reset_pixels():
     pixels.show()
 
 def light_up(pixel_num):
-    pixel_num = magnitude // 70
+    pixel_num = magnitude // 60
     if pixel_num > 10:
         pixel_num = 10
     for i in range(pixel_num):
-        pixels[i] = (255,255,0)
+        pixels[i] = (255,255,255)
         pixels.show()
-    time.sleep(0.01)
+    
 
 mic = audiobusio.PDMIn(board.MICROPHONE_CLOCK, board.MICROPHONE_DATA, sample_rate= 16000, bit_depth=16)
 samples = array.array("H",[0]*160)
@@ -38,3 +38,4 @@ while True:
     light_up(magnitude)
     reset_pixels()
     print(magnitude)
+    
